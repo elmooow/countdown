@@ -21,7 +21,7 @@
         }
 
         #countdown {
-            font-size: 48px;
+            font-size: 64px;
             margin-bottom: 20px;
             animation: glow 1.5s infinite alternate, bounce 2s infinite;
         }
@@ -40,13 +40,13 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-20px);
             }
         }
 
         #next-page-link {
             display: none;
-            font-size: 18px;
+            font-size: 24px;
             color: #ff69b4;
             text-decoration: none;
             border: 2px solid #ff69b4;
@@ -71,16 +71,16 @@
             }
         }
 
-        .balloons {
+        .floating-elements {
             position: absolute;
             bottom: 0;
             width: 100%;
             height: 300px;
-            animation: balloonsUp 7s ease-in-out infinite;
+            animation: floatUp 7s ease-in-out infinite;
             z-index: -1;
         }
 
-        @keyframes balloonsUp {
+        @keyframes floatUp {
             from {
                 bottom: -300px;
             }
@@ -89,39 +89,38 @@
             }
         }
 
-        .balloon {
+        .floating-element img {
             position: absolute;
             bottom: 0;
-            width: 50px;
-            height: 70px;
-            background-size: cover;
+            width: 60px;
+            height: 60px;
             animation: float 5s ease-in-out infinite;
         }
 
-        .balloon:nth-child(1) {
+        .floating-element:nth-child(1) img {
             left: 10%;
             animation-duration: 6s;
         }
 
-        .balloon:nth-child(2) {
+        .floating-element:nth-child(2) img {
             left: 30%;
             animation-duration: 5.5s;
             animation-delay: 1s;
         }
 
-        .balloon:nth-child(3) {
+        .floating-element:nth-child(3) img {
             left: 50%;
             animation-duration: 5.8s;
             animation-delay: 2s;
         }
 
-        .balloon:nth-child(4) {
+        .floating-element:nth-child(4) img {
             left: 70%;
             animation-duration: 6.2s;
             animation-delay: 1.5s;
         }
 
-        .balloon:nth-child(5) {
+        .floating-element:nth-child(5) img {
             left: 90%;
             animation-duration: 6.7s;
             animation-delay: 0.5s;
@@ -139,8 +138,25 @@
             }
         }
 
+        .lonjwin-element img {
+            position: absolute;
+            bottom: 0;
+            width: 80px;
+            height: 80px;
+            animation: moveHorizontally 10s linear infinite;
+        }
+
+        @keyframes moveHorizontally {
+            0% {
+                left: -80px; /* Start off-screen to the left */
+            }
+            100% {
+                left: 100vw; /* Move to off-screen to the right */
+            }
+        }
+
         .header {
-            font-size: 32px;
+            font-size: 36px;
             margin-bottom: 20px;
             animation: slideIn 2s forwards, shake 1s infinite alternate;
         }
@@ -164,47 +180,21 @@
                 transform: translateX(-10px);
             }
         }
-
-        .fox {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100px;
-            height: 70px;
-            background: url('lonjwin.png') no-repeat center center;
-            background-size: contain;
-            animation: runFox 10s linear infinite;
-        }
-
-        @keyframes runFox {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(100vw);
-            }
-            50.1% {
-                transform: translateX(-100vw);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="header">Happy 16th Birthday Anin!</div>
-    <div class="header">Count Down Yaa!</div>
+    <div class="header">Happy 16th Birthday, Anin!</div>
+    <div class="header">Countdown yaa!</div>
     <div id="countdown"></div>
     <a id="next-page-link" href="https://www.example.com">Celebrate Now!</a>
-    <div class="balloons">
-        <div class="balloon" style="background: url('https://cdn-icons-png.flaticon.com/512/869/869636.png') no-repeat center center;"></div>
-        <div class="balloon" style="background: url('https://cdn-icons-png.flaticon.com/512/869/869638.png') no-repeat center center;"></div>
-        <div class="balloon" style="background: url('https://cdn-icons-png.flaticon.com/512/869/869639.png') no-repeat center center;"></div>
-        <div class="balloon" style="background: url('https://cdn-icons-png.flaticon.com/512/869/869641.png') no-repeat center center;"></div>
-        <div class="balloon" style="background: url('https://cdn-icons-png.flaticon.com/512/869/869645.png') no-repeat center center;"></div>
+    <div class="floating-elements">
+        <div class="floating-element"><img src="cake.png" alt="Birthday Cake"></div>
+        <div class="floating-element"><img src="mark.png" alt="Party Hat"></div>
+        <div class="floating-element"><img src="trompet.png" alt="Balloon"></div>
+        <div class="floating-element"><img src="bunga.png" alt="Number 16"></div>
+        <div class="floating-element"><img src="16.png" alt="Confetti"></div>
+        <div class="lonjwin-element"><img src="lonjwin.png" alt="Lonjwin"></div>
     </div>
-    <div class="fox"></div>
 
     <script>
         function countdownTimer() {
