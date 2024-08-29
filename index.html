@@ -45,7 +45,7 @@
         }
 
         #next-page-link {
-            display: none;
+            display: block; /* Change to block since countdown is over */
             font-size: 24px;
             color: #ff69b4;
             text-decoration: none;
@@ -185,7 +185,7 @@
 <body>
     <div class="header">Happy 16th Birthday, Anin!</div>
     <div class="header">Countdown yaa!</div>
-    <div id="countdown"></div>
+    <div id="countdown">It's Time to Celebrate!</div> <!-- Display final message -->
     <a id="next-page-link" href="https://elmooow.github.io/anin-birthday-firework/">Celebrate Now!</a>
     <div class="floating-elements">
         <div class="floating-element"><img src="cake.png" alt="Birthday Cake"></div>
@@ -196,29 +196,5 @@
         <div class="lonjwin-element"><img src="lonjwin.png" alt="Lonjwin"></div>
     </div>
 
-    <script>
-        function countdownTimer() {
-            const now = new Date();
-            const midnight = new Date();
-            midnight.setHours(24, 0, 0, 0); // Set to midnight
-            const timeDifference = midnight - now;
-
-            if (timeDifference > 0) {
-                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                document.getElementById('countdown').innerHTML = 
-                    hours + "h " + minutes + "m " + seconds + "s ";
-
-            } else {
-                document.getElementById('countdown').innerHTML = "It's Time to Celebrate!";
-                document.getElementById('next-page-link').style.display = 'block';
-                clearInterval(timerInterval);
-            }
-        }
-
-        const timerInterval = setInterval(countdownTimer, 1000);
-    </script>
 </body>
 </html>
