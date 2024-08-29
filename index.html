@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Ulang Tahun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+        #countdown {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        #next-page-link {
+            display: none;
+            font-size: 24px;
+            color: #61dafb;
+            text-decoration: none;
+            border: 2px solid #61dafb;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        #next-page-link:hover {
+            background-color: #61dafb;
+            color: #282c34;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown"></div>
+    <a id="next-page-link" href="https://www.example.com">Go to Next Page</a>
+
+    <script>
+        function countdownTimer() {
+            const now = new Date();
+            const midnight = new Date();
+            midnight.setHours(24, 0, 0, 0); // Set to midnight
+            const timeDifference = midnight - now;
+
+            if (timeDifference > 0) {
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = 
+                    hours + "h " + minutes + "m " + seconds + "s ";
+
+            } else {
+                document.getElementById('countdown').innerHTML = "Happy Birthday!";
+                document.getElementById('next-page-link').style.display = 'block';
+                clearInterval(timerInterval);
+            }
+        }
+
+        const timerInterval = setInterval(countdownTimer, 1000);
+    </script>
+</body>
+</html>
